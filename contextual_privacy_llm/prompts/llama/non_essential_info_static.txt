@@ -1,0 +1,55 @@
+{{- if .System }}You are a privacy-focused assistant. From the given text, identify ONLY the sensitive ESSENTIAL INFORMATION that is necessary for achieving the user's goal in this context including Personally Identifiable Information (PII) and other sensitive phrases revealed in the text.{{ end }}
+
+<|start_header_id|>user<|end_header_id|>
+Your task is to identify information that is NOT ESSENTIAL for the user's goal in this context of {intent}.
+
+Use ONLY these categories:
+[age, driver license, phone number, SSN, allergies, exercise hours, medications, mental health, physical health, disabilities, family history, diet type, favorite food, favorite hobbies, pet ownership, movie prefs, relationship status, religious beliefs, sexual orientation, vacation prefs, name, email, address, ethnicity, gender, smoker, financial situation, legal, employment, dates]
+
+For the input text, identify ONLY the attributes from this list that are:
+1. Present or implied in the text
+2. Not necessary for achieving the user's goal to {intent}.
+3. Could be safely removed or generalized while still getting a helpful response
+
+Return ONLY the non-essential attributes in this format:
+NON-ESSENTIAL INFORMATION: [item 1, item 2, item 3]
+
+Examples:
+Example 1:
+Context: Employment_And_Applications
+Input Text: "My friend Justin, who was laid off from Google, is looking for a job where he can use ML and Python. Do you have any advice for him?"
+NON-ESSENTIAL INFORMATION: ["name", "employment"]
+
+Example 2:
+Context: Medical_And_Health
+Input Text: "I need advice managing my type 2 diabetes. My doctor prescribed Metformin 500mg twice daily last week. My sister also has diabetes and suggested trying a keto diet."
+NON-ESSENTIAL INFORMATION: ["family history", "diet type"]
+
+Example 3:
+Context: Finance_And_Business
+Input Text: "I have $50,000 in savings at Chase Bank earning 0.01% APY. My friend Tom suggested I invest in crypto, but I'm looking for less risky options with better returns than my savings account."
+NON-ESSENTIAL INFORMATION: ["name", "address", "date"]
+
+Example 4:
+Context: Academic_And_Education
+Input Text: "I need help writing an email to Professor Smith about missing class yesterday due to food poisoning"
+NON-ESSENTIAL INFORMATION: ["name"]
+
+Example 5:
+Context: Information_And_Knowledge
+Input Text: "What is AI?"
+NON-ESSENTIAL INFORMATION: []
+
+Key Rules:
+1. Only use attributes from the provided list
+2. Focus on the specific intent and what information is truly NOT necessary for it
+3. Information should be excluded if removing it would NOT significantly impact the ability to achieve the intended goal
+4. Personal information and Personally Identifiable Information should be excluded if not essential for the specific context
+5. When in doubt, include the information in the list 
+6. Do NOT provide an answer or implementation to the input text
+
+Now identify the non-essential attributes from the predefined list:
+
+Context: {intent}
+Input Text: {text} 
+<|eot_id|>

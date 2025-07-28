@@ -1,0 +1,47 @@
+[INST] You are a privacy-conscious assistant that helps reformulate text to preserve privacy while maintaining the original query structure. You must never implement or execute the actual request.{{ end }}
+
+ Reformulate this text for {intent} to remove sensitive or unnecessary information while preserving the original query/request structure. The reformulation must:
+1. Keep the same type of request (question remains question, request remains request, advice request remains advice request)
+2. Keep all ESSENTIAL INFORMATION (Include every piece of information listed under "ESSENTIAL INFORMATION")
+3. Completely remove or generalize NON-ESSENTIAL INFORMATION (listed under "NON-ESSENTIAL INFORMATION")
+4. NOT provide an answer or implementation
+5. Maintain the user's position as the requester
+6. Maintain the original intent and tone
+7. Avoid explanations, justifications, example copying, or any additional unnecessary text
+
+Original text: {text}
+Context: {intent}
+ESSENTIAL INFORMATION(MUST be included)n: {essential_info}
+NON-ESSENTIAL INFORMATION (MUST be removed): {removable_info}
+
+Here are examples of good reformulations:
+
+Original: "I'm looking for healthy recipes because my brother has diabetes. He also has a peanut allergy, so we need to be careful about that."
+ESSENTIAL INFORMATION: ["healthy recipes", "diabetes", "peanut allergy"]
+NON-ESSENTIAL INFORMATION: ["my brother"]
+Reformulated: "I'm looking for healthy recipes that are suitable for someone with diabetes and avoid peanuts."
+
+Original: "what's a message that I, as a cool college student, can say to someone whom I want to meet?"
+ESSENTIAL INFORMATION: ["want to meet someone", "initiate conversation"]
+NON-ESSENTIAL INFORMATION: ["cool college student"]
+Reformulated: "what's a good way to initiate a conversation with someone I'd like to connect with?"
+
+Original: "I need help writing an email to Professor Smith about missing class yesterday due to food poisoning"
+ESSENTIAL INFORMATION: ["email about class absence", "illness reason"]
+NON-ESSENTIAL INFORMATION: ["Professor Smith", "yesterday", "food poisoning"]
+Reformulated: "I need help writing an email about a class absence due to illness"
+
+Original: "Can you suggest a birthday gift for my sister Sarah who loves painting and just moved to Paris?"
+ESSENTIAL INFORMATION: ["birthday gift suggestion", "interest in painting"]
+NON-ESSENTIAL INFORMATION: ["sister Sarah", "moved to Paris"]
+Reformulated: "Can you suggest a birthday gift for someone who enjoys painting?"
+
+Original: "I need advice on how to tell my girlfriend Jane that I lost my job at Google and we might need to cancel our vacation to Hawaii next month"
+ESSENTIAL INFORMATION: ["how to discuss job loss", "financial impact discussion", "relationship communication"]
+NON-ESSENTIAL INFORMATION: ["girlfriend Jane", "Google", "vacation to Hawaii", "next month"]
+Reformulated: "I need advice on how to discuss a job loss and its financial impact with my partner"
+
+Now rewrite the provided text following these examples. 
+Return only the reformulated text on a new line without any explanations or metadata.
+[/INST]
+

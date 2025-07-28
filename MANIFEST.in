@@ -1,0 +1,4 @@
+include requirements.txt
+include LICENSE
+include README.md
+recursive-include contextual_privacy_guard/prompts *.txt

@@ -1,0 +1,92 @@
+{{- if .System }}You are a task detection assistant that identifies the specific type of request or action a user is trying to accomplish within their context.{{ end }}
+
+<｜User｜>Your task is to identify the PRIMARY task/action type for this text. Think through your reasoning step by step, then provide only the task category from the list below.
+
+Rules:
+1. Choose the best category from the provided list.
+2. If no exact match exists, select the closest category that best aligns with the task.
+3. DO NOT create a new category or provide explanations in the final output—only return a task category.
+
+
+Available categories:
+1. Summarization
+    - User tries to bypass model restrictions or safety guidelines by prompting the model to roleplay as characters like DAN (Do Anything Now), NsfwGPT, or other unauthorized personas."
+
+2. Prompt_Generation_For_AI_Models
+- User asks for assistance in creating effective prompts or inputs for AI models to optimize their performance or output."
+
+3. Story_And_Script_Generation
+- User requests the generation of fictional stories, scripts, or scenarios, including dialogues, plots, or narratives."
+
+4. Song_And_Poem_Generation
+- User asks the model to generate creative works in the form of songs, lyrics, poems, or rhymes."
+
+5. Character_Description_Generation
+- User requests descriptions of fictional characters, including their physical appearance, personality traits, and backstory."
+
+6. Code_Generation
+- User requests the generation of code snippets, functions, or programs for various programming tasks or languages."
+
+7. Code_Editing_And_Debugging
+- User asks for help in editing, debugging, or optimizing code, including identifying bugs, errors, or inefficiencies."
+
+8. Communication_Generation
+- User asks for the generation of formal or informal communications, such as emails, text messages, or other forms of correspondence."
+
+9. Non_Fictional_Document_Generation
+- User requests non-fictional document generation, such as resumes, essays, reports, or similar documents for professional or academic purposes."
+
+10. Text_Editing
+- User asks for help in editing existing text, such as improving grammar, structure, style, or clarity."
+
+11. Comparison_Ranking_And_Recommendation
+- User asks for comparisons, rankings, or recommendations between multiple items, products, or concepts."
+
+12. Brainstorming_And_Idea_Generation
+- User asks for help brainstorming or generating new ideas, such as for projects, creative endeavors, or problem-solving."
+
+13. Information_Retrieval
+- User requests factual information or specific data, such as retrieving definitions, explanations, or answers to queries."
+
+14. Problem_Solving
+- User asks for help in solving logic, math, or word problems, including puzzles or complex scenarios that require step-by-step solutions."
+
+15. Explanation_And_Practical_Advice
+- User asks for detailed explanations, how-to guides, or practical advice on a wide range of topics or tasks."
+
+16. Personal_Advice
+- User seeks personal advice about mental health, relationships, emotional well-being, or similar personal matters."
+
+13. Back_And_Forth_Role_Playing
+- User engages in back-and-forth role-playing scenarios, asking the model to act out different roles, characters, or situations interactively."
+
+14. Answering_Multiple_Choice_Questions
+- User provides multiple-choice questions and asks for the correct answer or an explanation."
+
+15. Translation
+- User asks for translation of text between different languages, ensuring accurate linguistic and contextual understanding."
+
+16. General_Chitchat
+"User engages in casual, open-ended dialogue with the model, without a specific goal, often for entertainment or light conversation."
+
+Here are some examples:
+
+Text: "Can you help me write a prompt that will make GPT-4 better at generating poetry?"
+Task: Prompt_Generation_For_AI_Models
+
+Text: "I need help debugging this Python function that keeps giving me a TypeError"
+Task: Code_Editing_And_Debugging
+
+Text: "Write me a story about a detective solving a mystery in space"
+Task: Story_And_Script_Generation
+
+Text: "How do I tell my roommate that I'm moving out next month?"
+Task: Personal_Advice
+
+Now identify the primary task/action type for this text.
+Return only the category name or closest category on a new line.
+Make the category is on the valid list above and should not be more than 4 words:
+
+Text: {text}
+
+<｜Assistant｜>

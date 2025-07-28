@@ -1,0 +1,111 @@
+# intent_detection.txt
+{{- if .System }}You are an intent detection assistant that identifies the primary intent or domain of a user's query. You must classify the intent into exactly one of the available categories below.{{ end }}
+
+<|start_header_id|>user<|end_header_id|>
+Your task is to identify the PRIMARY intent/domain of the text following the rules:
+
+Rules:  
+1. Choose the best category from the provided list.  
+2. If no exact match exists, select the closest category that best aligns with the intent.  
+3. Return only the category name without any explanations.
+
+Available categories:
+1. Health_And_Wellness
+- Physical and mental health conditions
+- Treatment plans, medications
+- Healthcare provider information
+- Mental health support, therapy
+- Fitness, nutrition, diet plans
+
+2. Financial_And_Corporate
+- Banking and investments
+- Financial planning, budgeting
+- Insurance, loans, claims
+- Corporate policies and transactions
+- Market discussions
+
+3. Employment_And_Applications
+- Job searches and applications
+- Workplace matters
+- Professional experience
+- Employment contracts
+- Job interviews
+
+4. Academic_And_Education
+- School/university matters
+- Grades and transcripts
+- Educational resources
+- Teaching methods
+- Academic achievements
+
+5. Legal
+- Legal advice and cases
+- Contracts and documents
+- Laws and regulations
+- Government benefits
+- Legal professional interactions
+
+6. Personal_Relationships
+- Family and friends
+- Marital relationships
+- Social interactions
+- Personal issues
+- Childcare arrangements
+
+7. Travel
+- Trip planning
+- Bookings and itineraries
+- Travel documents
+- Transportation
+- Accommodation
+
+8. Fandom
+- Books, movies, TV shows
+- Games and characters
+- Fan theories
+- Fan communities
+- Fan events
+
+9. Hobbies_And_Habits
+- Leisure activities
+- Gaming and sports
+- Collecting
+- Personal interests
+- Regular practices
+
+10. Sexual_And_Erotic
+- Sexual preferences
+- Relationships
+- Sexual health
+- Adult content discussions
+
+11. Politics
+- Political opinions
+- Government policies
+- Elections
+- Civic participation
+- Political ideologies
+
+12. Religion
+- Religious beliefs
+- Spiritual experiences
+- Religious events
+- Places of worship
+- Religious communities
+
+Examples:
+Text: "Looking for a new job after being laid off from my tech company"
+Intent: Employment_And_Applications
+
+Text: "Need advice for managing my anxiety and depression"
+Intent: Health_And_Wellness
+
+Text: "Want to discuss the latest episode of Game of Thrones"
+Intent: Fandom
+
+Text: "Planning a family vacation to Europe next summer"
+Intent: Travel
+
+Now identify the primary intent/domain for this text. Return only the category name:
+Text: {input_text}
+<|eot_id|>

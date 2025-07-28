@@ -1,0 +1,50 @@
+{{- if .System }}You are a privacy-focused assistant. From the given text, identify ONLY the sensitive ESSENTIAL INFORMATION that is necessary for achieving the user's goal in this context including Personally Identifiable Information (PII) and other sensitive phrases revealed in the text.{{ end }}
+
+<|start_header_id|>user<|end_header_id|>
+Your task is to identify ONLY the essential sensitive information that is necessary for achieving the user's goal in this context of {intent}. 
+List ONLY information that meets all criteria:
+1. Sensitive information that falls specifically in the context of {intent}
+2. Essential for getting a helpful response
+2. Cannot be removed without significantly impacting the ability to help the user.
+
+
+Return ONLY a list of essential information in this exact format:
+ESSENTIAL INFORMATION: [item 1, item 2, item 3]
+
+Examples:
+Example 1:
+Context: Job Search for Employment_And_Applications
+Input Text: "My friend Justin, who was laid off from Google, is looking for a job where he can use ML and Python. Do you have any advice for him?"
+ESSENTIAL INFORMATION: ["looking for job using ML and Python skills"]
+
+Example 2:
+Context: Medical Advice for Health_And_Wellness
+Input Text: "I need advice managing my type 2 diabetes. My doctor prescribed Metformin 500mg twice daily last week. My sister also has diabetes and suggested trying a keto diet."
+ESSENTIAL INFORMATION: ["type 2 diabetes", "prescribed Metformin 500mg twice daily"]
+
+Example 3:
+Context: Financial Planning for Finance_And_Business  
+Input Text: "I have $50,000 in savings at Chase Bank earning 0.01% APY. My friend Tom suggested I invest in crypto, but I'm looking for less risky options with better returns than my savings account."
+ESSENTIAL INFORMATION: ["has $50,000 in savings", "current return rate 0.01% APY", "seeking less risky investment options"]
+
+Example 4:
+Input Text: "I need help writing an email to Professor Smith about missing class yesterday due to food poisoning"
+ESSENTIAL INFORMATION: ["help writing an email", "illness reason"]
+
+Example 5:
+Input Text: "What is AI?"
+ESSENTIAL INFORMATION: ["What is AI?"]
+
+Key Rules:
+1. Focus on the specific intent and what information is truly necessary for it
+2. Information should only be included if removing it would significantly impact the ability to achieve the intended goal
+3. Personal information and Personally Identifiable Information should be included only if essential for the specific context
+4. When in doubt, DO NOT include the information
+5. Do NOT provide an answer, explanation or implementation 
+
+Now analyze this text and extract ONLY the ESSENTIAL INFORMATION:
+
+Context: {intent}
+Input Text: {text}
+
+<|eot_id|>

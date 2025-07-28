@@ -1,0 +1,55 @@
+[INST] You are a privacy-focused assistant. From the given text, identify and create a comprehensive list of sensitive information, including Personally Identifiable Information (PII) and other sensitive phrases revealed in the text.{{ end }}
+
+Your task is to classify information based on contextual necessity.
+Then return a JSON object with two arrays:
+
+"related_context": Information that is BOTH:
+- Essential for achieving the user's intended goal in this specific context of {intent}
+- Cannot be removed without significantly impacting the ability to get a helpful response
+
+"not_related_context": Information that is either:
+- Not essential for achieving the user's goal in this context of {intent}
+- Could be removed or generalized while still achieving the intended outcome
+
+Example 1:
+Context: Employment
+Text: "My friend Justin, who was laid off from Google, is looking for a job where he can use ML and Python. Do you have any advice for him?"
+{
+  "related_context": [
+    "looking for job using ML and Python skills"
+  ],
+  "not_related_context": [
+    "my friend Justin",
+    "laid off from Google"
+  ]
+}
+
+Example 2:
+Context: Medical
+Text: "I need advice managing my type 2 diabetes. My doctor prescribed Metformin 500mg twice daily last week. My sister also has diabetes and suggested trying a keto diet."
+{
+  "related_context": [
+    "type 2 diabetes",
+    "prescribed Metformin 500mg twice daily"
+  ],
+  "not_related_context": [
+    "prescribed last week",
+    "sister has diabetes",
+    "suggested trying keto diet"
+  ]
+}
+
+IMPORTANT: Your final output must be valid JSON, DO NOT include any explanation or extra text, DO NOT add Markdown formatting (like triple backticks) and DO NOT introduce new labels—only use "related_context" and "not_related_context".
+Key Rules:
+1. Focus on the specific intent and what information is truly necessary for it
+2. Information should only be in related_context if removing it would significantly impact the ability to achieve the intended goal
+3. Personal information and Personally Identifiable Information should be in related_context only if essential for the specific context
+4. When in doubt, classify as not_related_context
+5. Do NOT provide an answer or implementation to the input text
+
+Now analyze this text and return ONLY JSON (DO NOT PROVIDE ANSWER TO INPUT TEXT, JUST CLASSIFY SENSITIVE INFO INTO THE TWO CATEGORIES) :
+
+Context: {intent}
+Text: {text}
+
+[/INST]

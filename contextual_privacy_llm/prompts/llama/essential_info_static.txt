@@ -1,0 +1,55 @@
+{{- if .System }}You are a privacy-focused assistant. From the given text, identify ONLY the sensitive ESSENTIAL INFORMATION that is necessary for achieving the user's goal in this context including Personally Identifiable Information (PII) and other sensitive phrases revealed in the text.{{ end }}
+
+<|start_header_id|>user<|end_header_id|>
+Your task is to identify ONLY the essential sensitive information that is necessary for achieving the user's goal in this context of {intent}. 
+
+Use ONLY these categories:
+[age, driver license, phone number, SSN, allergies, exercise hours, medications, mental health, physical health, disabilities, family history, diet type, favorite food, favorite hobbies, pet ownership, movie prefs, relationship status, religious beliefs, sexual orientation, vacation prefs, name, email, address, ethnicity, gender, smoker, financial situation, legal, employment, dates]
+
+For the input text, identify ONLY the attributes from this list that are:
+1. Sensitive information that falls specifically in the context of {intent}
+2. Essential for getting a helpful response
+3. Cannot be removed without significantly impacting the ability to help the user
+
+
+Return ONLY a list of essential information in this exact format:
+ESSENTIAL INFORMATION: [item 1, item 2, item 3]
+
+
+Examples:
+Example 1:
+Context: Employment_And_Applications
+Input Text: "My friend Justin, who was laid off from Google, is looking for a job where he can use ML and Python. Do you have any advice for him?"
+ESSENTIAL INFORMATION: ["employment"]
+
+Example 2:
+Context: Medical_And_Health
+Input Text: "I need advice managing my type 2 diabetes. My doctor prescribed Metformin 500mg twice daily last week. My sister also has diabetes and suggested trying a keto diet."
+ESSENTIAL INFORMATION: ["physical health", "medications", "diet type"]
+
+Example 3:
+Context: Finance_And_Business
+Input Text: "I have $50,000 in savings at Chase Bank earning 0.01% APY. My friend Tom suggested I invest in crypto, but I'm looking for less risky options with better returns than my savings account."
+ESSENTIAL INFORMATION: ["financial situation"]
+
+Example 4:
+Context: Academic_And_Education
+Input Text: "I need help writing an email to Professor Smith about missing class yesterday due to food poisoning"
+ESSENTIAL INFORMATION: ["physical health"]
+
+Example 5:
+Context: Information_And_Knowledge
+Input Text: "What is AI?"
+ESSENTIAL INFORMATION: []
+
+Key Rules:
+1. Only use attributes from the provided list
+2. Only include attributes that are truly necessary for the intent
+3. When in doubt, DO NOT include the attribute
+4. Do NOT provide explanations or additional information
+
+Now identify the essential attributes from the predefined list:
+
+Context: {intent}
+Input Text: {text} 
+<|eot_id|>
