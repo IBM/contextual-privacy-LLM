@@ -106,11 +106,12 @@ uv pip install -e .
 ```
 Requires Python 3.8+. You may optionally install Ollama or vLLM depending on the backend used.
 
-### Start Ollama Serve
-Before running the analysis, you should manually start the Ollama server and pull a compatible model:
+### Start Ollama Server
+Before running the analysis, you should manually start the Ollama server and pull a compatible model (Note: Our code currently works for Ollama version v0.11.6) :
+
 ```bash
-# Install Ollama (if not already installed)
-curl -fsSL https://ollama.com/install.sh | sh
+# Install Ollama v0.11.6 (if not already installed) e.g for Linux x86_64 build
+curl -L https://github.com/ollama/ollama/releases/download/v0.11.6/ollama-linux-amd64.tgz -o ollama.tgz 
 
 # Start ollama in the background (e.g on another terminal)
 ollama serve
